@@ -13372,11 +13372,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\git\\HomeSecurityAPI\\HomeSecurityAPI.csproj",
+      "projectUniqueName": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\HomeSecurityAPI\\HomeSecurityAPI.csproj",
       "projectName": "HomeSecurityAPI",
-      "projectPath": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\git\\HomeSecurityAPI\\HomeSecurityAPI.csproj",
+      "projectPath": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\HomeSecurityAPI\\HomeSecurityAPI.csproj",
       "packagesPath": "C:\\Users\\KristofHorvath\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\git\\HomeSecurityAPI\\obj\\",
+      "outputPath": "C:\\Users\\KristofHorvath\\source\\repos\\HomeSecurityAPI\\HomeSecurityAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -16,7 +16,13 @@ namespace HomeSecurityAPI.Controllers
     {
         public DataAccessPictures dap = new DataAccessPictures(); 
 
-
+        private static List<Picture> lst = new List<Picture>()
+        {
+           new Picture(){
+               userID = 1,
+               Base64 = "afdfdlfgéjsjoa"
+           }
+        };
 
         // GET api/picture/id
         [HttpGet]
