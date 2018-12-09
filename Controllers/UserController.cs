@@ -10,30 +10,40 @@ namespace HomeSecurityAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-            private IUserService _userService;
+        private IUserService _userService;
 
-            public UserController(IUserService userService)
-            {
-                _userService = userService;
-            }
-
-            [AllowAnonymous]
-            [HttpPost("authenticate")]
-            public IActionResult Authenticate([FromBody]User userParam)
-            {
-                var user = _userService.Authenticate(userParam.Username, userParam.Password);
-
-                if (user == null)
-                    return BadRequest(new { message = "Username or password is incorrect" });
-
-                return Ok(user);
-            }
-
-            [HttpGet]
-            public IActionResult GetAll()
-            {
-                var users = _userService.GetAll();
-                return Ok(users);
-            }
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
         }
+
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate([FromBody]User userParam)
+        {
+            var user = _userService.Authenticate(userParam.Username, userParam.Password);
+
+            if (user == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(user);
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var users = _userService.GetAll();
+            return Ok(users);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] User u)
+        {
+            // needs info check and exception handling
+            var user = _userService.Create(u);
+            return Ok(user);
+        }
+
     }
+}

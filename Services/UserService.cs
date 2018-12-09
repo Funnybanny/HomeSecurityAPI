@@ -60,7 +60,9 @@ namespace HomeSecurityAPI.Services
         public async Task<User> GetbyID(int id)
         {
             var col = _db.GetCollection<User>("Users");
-            return await col.Find(user => user.UserId == id).SingleAsync();
+            var result = await col.Find(user => user.UserId == id).SingleAsync();
+            result.Password = null;
+            return result;
         }
 
         public async Task<List<User>> GetAll()
