@@ -3,37 +3,37 @@ using Microsoft.AspNetCore.Authorization;
 using HomeSecurityAPI.Interfaces;
 using HomeSecurityAPI.Models;
 
-namespace HomeSecurity.Controllers
+namespace HomeSecurityAPI.Controllers
 {
     [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private IUserService _userService;
+            private IUserService _userService;
 
-        public UsersController(IUserService userService)
-        {
-            _userService = userService;
-        }
+            public UserController(IUserService userService)
+            {
+                _userService = userService;
+            }
 
-        [AllowAnonymous]
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]User userParam)
-        {
-            var user = _userService.Authenticate(userParam.Username, userParam.Password);
+            [AllowAnonymous]
+            [HttpPost("authenticate")]
+            public IActionResult Authenticate([FromBody]User userParam)
+            {
+                var user = _userService.Authenticate(userParam.Username, userParam.Password);
 
-            if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                if (user == null)
+                    return BadRequest(new { message = "Username or password is incorrect" });
 
-            return Ok(user);
-        }
+                return Ok(user);
+            }
 
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _userService.GetAll();
-            return Ok(users);
+            [HttpGet]
+            public IActionResult GetAll()
+            {
+                var users = _userService.GetAll();
+                return Ok(users);
+            }
         }
     }
-}

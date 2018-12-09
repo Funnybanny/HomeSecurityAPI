@@ -12,3 +12,17 @@ C:\Users\KristofHorvath\source\repos\HomeSecurityAPI\HomeSecurityAPI\obj\Debug\n
 C:\Users\KristofHorvath\source\repos\HomeSecurityAPI\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.pdb
 C:\Users\KristofHorvath\source\repos\HomeSecurityAPI\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.dll
 C:\Users\KristofHorvath\source\repos\HomeSecurityAPI\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.pdb
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.deps.json
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.runtimeconfig.json
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.runtimeconfig.dev.json
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.dll
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\bin\Debug\netcoreapp2.1\HomeSecurityAPI.pdb
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.csprojAssemblyReference.cache
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.csproj.CoreCompileInputs.cache
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.RazorAssemblyInfo.cache
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.RazorAssemblyInfo.cs
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.AssemblyInfoInputs.cache
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.AssemblyInfo.cs
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.RazorTargetAssemblyInfo.cache
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.dll
+C:\Users\KristofHorvath\Desktop\exam\IOT\API\HomeSecurityAPI\obj\Debug\netcoreapp2.1\HomeSecurityAPI.pdb
