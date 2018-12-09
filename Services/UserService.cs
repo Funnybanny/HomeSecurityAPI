@@ -2,6 +2,8 @@
 using HomeSecurityAPI.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,21 +17,20 @@ namespace HomeSecurityAPI.Services
     public class UserService : IUserService
     {
         private readonly AppSettings _appSettings;
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        {
-            new User { UserId = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
-        };
-
+        private MongoClient _client;
+        private static IMongoDatabase _db;
         public UserService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+            _client = new MongoClient("mongodb://Kristof:asdlol1@ds127704.mlab.com:27704/home-security");
+            _db = _client.GetDatabase("home-security");
         }
 
-        public User Authenticate(string username, string password)
+        public async Task<User> Authenticate(string username, string password)
         {
+            var collection = _db.GetCollection<User>("Users");
             // needs rebuild for MongoDB
-            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            var user = await collection.Find(x => x.Username == username && x.Password == password).SingleAsync();
 
             // return null if user not found
             if (user == null)
@@ -56,13 +57,43 @@ namespace HomeSecurityAPI.Services
             return user;
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<User> GetbyID(int id)
         {
-            // return users without passwords, need rebuild for MongoDB
-            return _users.Select(x => {
-                x.Password = null;
-                return x;
-            });
+            var col = _db.GetCollection<User>("Users");
+            return await col.Find(user => user.UserId == id).SingleAsync();
         }
+
+        public async Task<List<User>> GetAll()
+        {
+            var col = _db.GetCollection<User>("Users");
+            var lst = await col.Find(_ => true).ToListAsync();
+
+            foreach (User u in lst)
+            {
+                u.Password = null;
+            }
+
+            return lst;
+        }
+
+        public async Task<User> Create(User u)
+        {
+            BsonDocument user = new BsonDocument
+            {
+                {"userID" , u.UserId},
+                {"FirstName" , u.FirstName },
+                {"LastName" , u.LastName},
+                {"Username" , u.Username},
+                {"Password" , u.Password}
+            };
+
+            var col = _db.GetCollection<BsonDocument>("Users");
+            await col.InsertOneAsync(user);
+            u.Password = null;
+            return u;
+        }
+
+
+
     }
 }
