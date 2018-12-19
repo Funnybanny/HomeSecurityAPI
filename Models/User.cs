@@ -9,9 +9,8 @@ namespace HomeSecurityAPI.Models
 {
     public class User
     {
+        
         public ObjectId Id { get; set; }
-        [BsonElement("userID")]
-        public int UserId { get; set; }
         [BsonElement("FirstName")]
         public string FirstName { get; set; }
         [BsonElement("LastName")]

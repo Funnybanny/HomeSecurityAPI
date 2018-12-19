@@ -8,9 +8,9 @@ namespace HomeSecurityAPI.Interfaces
 {
     public interface IUserService
     {
-        Task<User> Authenticate(string username, string password);
+        Task<User> Authenticate(User u);
         Task<List<User>> GetAll();
-        Task<User> GetbyID(int id);
+        Task<User> GetbyUsername(string username);
         Task<User> Create(User u);
     }
 }
