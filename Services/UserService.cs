@@ -35,7 +35,7 @@ namespace HomeSecurityAPI.Services
 
             var collection = _db.GetCollection<User>("Users");
             // needs rebuild for MongoDB
-            var user = await collection.Find(x => x.Username == u.Username && x.Password == u.Password).SingleOrDefaultAsync();
+            var user = await collection.Find(x => x.Username == u.Username).SingleOrDefaultAsync();
             if (user == null)
                 throw new InvalidDataException("User Not Found");
 

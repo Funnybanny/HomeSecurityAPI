@@ -37,14 +37,14 @@ namespace HomeSecurityAPI.Controllers
         
         //POST api/authenticate
         [HttpPost]
-        public async Task<IActionResult> Authenticate([FromBody]string Username, string Password)
+        public async Task<ActionResult<string>> Authenticate([FromBody]User u)
         {
             try
             {
-                var u = new User {
+                /*var u = new User {
                     Username = Username,
                     Password = Password
-                };
+                };*/
                 var user = await _userService.Authenticate(u);
 
                 if (user == null)
