@@ -14,11 +14,11 @@ namespace HomeSecurityAPI.Controllers
     [ApiController]
     public class PictureController : ControllerBase
     {
-        public DataAccessPictures dap = new DataAccessPictures(); 
+        public DataAccessPictures dap = new DataAccessPictures();
 
         // GET api/picture/id
-        [HttpGet]
-        public async Task<List<Picture>> GetAll(int id)
+        [HttpGet("{id}")]
+        public async Task<List<Picture>> GetByID(int id)
         {
            return  await dap.GetAllbyUserID(id);
         }

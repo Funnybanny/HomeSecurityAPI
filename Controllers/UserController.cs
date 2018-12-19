@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 namespace HomeSecurityAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -19,12 +18,20 @@ namespace HomeSecurityAPI.Controllers
             _userService = userService;
         }
 
+
         //GET api/user
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _userService.GetAll());
 
+        }
+
+        //GET api/user
+        [HttpGet("{username}")]
+        public async Task<IActionResult> GetUserByUsername(string username)
+        {
+            return Ok(await _userService.GetbyUsername(username));
         }
     }
 }

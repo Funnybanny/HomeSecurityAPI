@@ -53,7 +53,6 @@ namespace HomeSecurityAPI.Services
         {
             var col = _db.GetCollection<User>("Users");
             var result = await col.Find(user => user.Username == username).SingleAsync();
-            result.Password = null;
             return result;
         }
 
