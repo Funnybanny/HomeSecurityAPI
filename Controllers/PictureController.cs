@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using HomeSecurityAPI.DataAccess;
 using HomeSecurityAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace HomeSecurityAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PictureController : ControllerBase

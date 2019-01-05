@@ -22,7 +22,6 @@ namespace HomeSecurityAPI.Services
         
         private MongoClient _client;
         private static IMongoDatabase _db;
- 
 
         public UserService()
         {
@@ -86,6 +85,33 @@ namespace HomeSecurityAPI.Services
             return u;
         }
 
+        public async Task<User> Update(User u, string username)
+        {
+            var oldUser = await GetbyUsername(username);
+            BsonDocument user = new BsonDocument {
+                {"FirstName" , u.FirstName},
+                {"LastName" , u.LastName},
+                {"Username" , u.Username},
+                {"Password" , u.Password}
+            };
+
+            var col = _db.GetCollection<BsonDocument>("Users");
+            FilterDefinitionBuilder<BsonDocument> builder = Builders<BsonDocument>.Filter;
+            FilterDefinition<BsonDocument> filter;
+
+            filter = builder.Eq("Username", oldUser.Username);
+            await col.ReplaceOneAsync(filter, user);
+
+            return u;
+        }
+
+
+        public async Task Delete(string username)
+        {
+            var col = _db.GetCollection<User>("Users");
+            await col.DeleteOneAsync(p => p.Username == username);
+        }
+        //neeed delete update
 
 
     }

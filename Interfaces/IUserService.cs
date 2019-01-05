@@ -12,5 +12,7 @@ namespace HomeSecurityAPI.Interfaces
         Task<List<User>> GetAll();
         Task<User> GetbyUsername(string username);
         Task<User> Create(User u);
+        Task<User> Update(User u, string username);
+        Task Delete(string username);
     }
 }

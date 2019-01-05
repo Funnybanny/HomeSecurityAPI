@@ -14,5 +14,8 @@ namespace HomeSecurityAPI.Models
         public int userID { get; set; }
         [BsonElement("Base64")]
         public string Base64 { get; set; }
+        [BsonElement("Timestamp")]
+        public DateTime Timestamp { get; set; }
+        // need timestamp
     }
 }

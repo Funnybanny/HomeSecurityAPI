@@ -8,6 +8,7 @@ using HomeSecurityAPI.Models;
 
 namespace HomeSecurityAPI.DataAccess
 {
+
     public class DataAccessPictures
     {
         MongoClient _client;
@@ -22,7 +23,8 @@ namespace HomeSecurityAPI.DataAccess
         {
             BsonDocument picture = new BsonDocument {
                 {"userID" , p.userID },
-                {"Base64" , p.Base64}
+                {"Base64" , p.Base64},
+                {"Timestamp" , DateTime.Now }
             };
             var collection = _db.GetCollection<BsonDocument>("Pictures");
             await collection.InsertOneAsync(picture);
@@ -42,5 +44,20 @@ namespace HomeSecurityAPI.DataAccess
             await col.DeleteOneAsync(p => p.Id == ObjectId.Parse(objId));
         }
 
+        public async Task<List<Picture>> GetPictureByDate(DateTime date)
+        {
+            var col = _db.GetCollection<Picture>("Pictures");
+            return await col.Find(pic => pic.Timestamp == date).ToListAsync();
+        }
+
+        public async Task<List<Picture>> GetPictureByIntervallum(DateTime date1, DateTime date2)
+        {
+            var col = _db.GetCollection<Picture>("Pictures");
+            return await col.Find(pic => 
+                    pic.Timestamp >= date1 
+                    && 
+                    pic.Timestamp <= date2).ToListAsync();
+        }
+        //we need pictures within certain time frames
     }
 }
